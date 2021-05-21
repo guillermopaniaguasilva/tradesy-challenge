@@ -2,7 +2,7 @@
 
 ## Installation
 
-Clone this repo to your local machine and install the project's dependencies by runnning the command:
+Clone this repo to your local machine and install the project's dependencies by running the command:
 
 ```
 npm i
