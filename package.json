@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio wdio.conf.js"
+    "test": "npx wdio wdio.conf.js",
+    "onboarding": "npm test -- --spec ./src/test/onboarding.test.js",
+    "search": "npm test -- --spec ./src/test/search.test.js"
   },
   "keywords": [],
   "author": "paniaguasilvaguillermo@gmail.com",
@@ -20,5 +22,8 @@
     "eslint": "^7.26.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.2"
+  },
+  "dependencies": {
+    "dotenv": "^9.0.2"
   }
 }

@@ -12,10 +12,14 @@
   },
   "globals": {
     "$": "readonly",
+    "$$": "readonly",
     "browser": "readonly",
+    "driver": "readonly",
     "expect": "readonly",
     "describe": "readonly",
-    "it": "readonly"
+    "it": "readonly",
+    "afterEach": "readonly",
+    "beforeEach": "readonly"
   },
   "rules": {
     "no-underscore-dangle": 0,
@@ -25,6 +29,7 @@
     "no-plusplus": 0,
     "lines-between-class-members": 0,
     "no-unused-expressions": 0,
-    "max-len": 0
+    "max-len": 0,
+    "no-restricted-syntax": 0
   }
 }

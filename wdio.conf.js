@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const { join } = require('path');
 
 exports.config = {
@@ -26,7 +28,11 @@ exports.config = {
   // then the current working directory is where your `package.json` resides, so `wdio`
   // will be called from there.
   //
-  specs: ['./test/specs/**/*.js'],
+  specs: ['./src/test/**/*.js'],
+  // suites: {
+  //   onboarding: ['./src/test/onboarding.test.js'],
+  //   search: ['./src/test/search.test.js'],
+  // },
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -47,7 +53,7 @@ exports.config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 10,
+  maxInstances: 1,
   //
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -66,9 +72,17 @@ exports.config = {
       // it is possible to configure which logTypes to include/exclude.
       // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
       // excludeDriverLogs: ['bugreport', 'server'],
+      maxInstances: 1,
       platformName: 'Android',
-      'appium:deviceName': 'Pixel 2',
-      'appium:app': join(process.cwd(), '/apps/ApiDemos-debug.apk'),
+      'appium:deviceName': process.env.ANDROID_DEVICE_NAME,
+      'appium:app': join(
+        process.cwd(),
+        '/apps/app-alpha-universal-release.apk',
+      ),
+      'appium:autoGrantPermission': true,
+      'appium:appWaitActivity':
+        'org.wikipedia.onboarding.InitialOnboardingActivity',
+      'appium:sessionOverride': true,
     },
   ],
   //
